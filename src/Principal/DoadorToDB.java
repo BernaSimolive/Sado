@@ -99,5 +99,23 @@ public class DoadorToDB {
         return 0;
        }
     }
+    public void alterarDoador(Doador doador) {
+       String sql =   "UPDATE  doador SET nomeDoador=\"" +doador.getNome()+ "\",telefone=\""+ doador.getTelefone() 
+               +"\",endereco=\""+doador.getEndereco()+"\",email=\""+doador.getEmail()+"\" WHERE cpfDoador=" + doador.getCpfDoador();
+       
+       System.out.println(sql);
+       try {
+        Connection c = ConexaoDB.obtemConexao();
+        PreparedStatement ps = c.prepareStatement(sql);
+        ps.execute();
+        JOptionPane.showMessageDialog(null, "Alteração realizada!");	
+        ps.close();
+        c.close();               
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro na Alteração!");
+            e.printStackTrace();
+       }
+    }
 }
     

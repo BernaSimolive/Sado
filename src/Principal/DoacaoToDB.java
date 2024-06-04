@@ -129,4 +129,24 @@ public class DoacaoToDB {
         return 0;
        }
     }
+    
+    public void alterarDoacao(Doacao doacao) {
+       String sql =   "UPDATE  doacao SET Doador_cpfDoador=\"" +doacao.getCpfDoador()+ "\",nomeAlimento=\""+ doacao.getNome() 
+               +"\",peso=\""+doacao.getPeso()+"\",quantidade=\""+doacao.getQuantidade()+"\",descricao=\""+doacao.getDescricao()
+               +"\" WHERE idDoacao=" + doacao.getCodigo();
+       
+       System.out.println(sql);
+       try {
+        Connection c = ConexaoDB.obtemConexao();
+        PreparedStatement ps = c.prepareStatement(sql);
+        ps.execute();
+        JOptionPane.showMessageDialog(null, "Alteração realizada!");	
+        ps.close();
+        c.close();               
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro na Alteração!");
+            e.printStackTrace();
+       }
+    }
 }

@@ -7,6 +7,7 @@ import Principal.DoacaoToDB;
 import Principal.DoadorToDB;
 import java.awt.Toolkit;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -47,7 +48,7 @@ public class TelaConsulta extends javax.swing.JFrame {
 
             }
         } catch(Exception e){
-            
+            JOptionPane.showMessageDialog(null, "Erro na Consulta!");
             e.printStackTrace();
             
         }
@@ -71,7 +72,7 @@ public class TelaConsulta extends javax.swing.JFrame {
 
             }
         } catch(Exception e){
-            
+            JOptionPane.showMessageDialog(null, "Erro na Consulta!");
             e.printStackTrace();
             
         }
